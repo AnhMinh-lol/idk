@@ -3,7 +3,7 @@ import feedparser
 
 st.title("🎧 Entertainment and health app")
 
-tab1, tab2, tab3, tab4 = st.tabs(["Health check ❤️", "📰 News", " Gold price", "Step advice"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Health check ❤️", "📰 News", " Gold price", "Step advice", "Water Tracker"])
 
 with tab1:
     st.header("Kiểm tra sức khỏe của bạn")
@@ -55,3 +55,34 @@ with tab4:
 
         if Age > 17 and Age < 39:
             st.info("You should walk about 8000 to 10000 steps per day")
+
+with tab5:
+    st.header("Water Tracker by Age")
+    age = st.number_input("Your age:", min_value=1, max_value=100, value=12, step=1)
+    gender = st.number_input("Your gender(1 = Male, 2 = Female):", min_value=1, max_value=2, value=2, step=1)
+    if st.button("Water reccomendations"):
+        st.sucess(f"Your age: {Age: .2f}")
+
+        if age < 4:
+            st.info("You should drink 1.3L per day")
+
+        if age < 9:
+            st.info("You should drink 1.7L per day")
+
+        if age < 14:
+            st.info("You should drink 2.1 - 2.4L per day")
+
+        if age < 19 and gender == 1:
+            st.info("You should drink 3.3L per day")
+        
+        if age < 19 and gender == 2:
+            st.info("You should drink 2.3L per day")
+        
+        if age < 51 and gender == 2:
+            st.info("You should drink 2.7L per day")
+
+        if age < 51 and gender == 1:
+            st.info("You should drink 3.7L per day")
+
+        if age > 50:
+            st.info("You should drink 2.5 - 3.0L per day depending on your exercising level.")
